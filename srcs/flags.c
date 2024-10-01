@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 16:13:03 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/01 11:20:36 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/01 16:19:41 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,4 +112,42 @@ int	get_s_flag(const char *s)
 		i++;
 	}
 	return (0);
+}
+
+/**
+ * @brief Combine two flags with a logical OR, **avoiding conflicts**.
+ * 
+ * l -> -C -f [+1] (ignored if g)
+ * C -> -1 -l
+ * 1 -> -C
+ * f -> -l -r -A [+a]
+ * R -> (ignored if d)
+ * r -> (ignored if f)
+ * t ->
+ * A -> -a
+ * a -> -A
+ * u ->
+ * g -> -l
+ * d -> -R
+ */
+int or_flag(int flags, int flag)
+{
+	if ((flag & FLAG_L && flags & FLAG_G) || (flag & FLAG_RR && flags & FLAG_D)
+		|| (flag & FLAG_R && flags & FLAG_F))
+		return (flags);
+	if (flag & FLAG_L)
+		flags &= ~(FLAG_CC | FLAG_F);
+	if (flag & FLAG_CC)
+		flags &= ~(FLAG_1 | FLAG_L);
+	if (flag & FLAG_1)
+		flags &= ~FLAG_CC;
+	if (flag & FLAG_F)
+		flags &= ~(FLAG_L | FLAG_R | FLAG_AA);
+	if (flag & (FLAG_AA | FLAG_A))
+		flags &= ~(FLAG_AA | FLAG_A);
+	if (flag & FLAG_G)
+		flags &= ~FLAG_L;
+	if (flag & FLAG_D)
+		flags &= ~FLAG_RR;
+	return (flags | flag);
 }

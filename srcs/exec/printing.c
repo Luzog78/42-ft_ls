@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ls.h                                            :+:      :+:    :+:   */
+/*   printing.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/27 11:03:20 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/01 11:40:19 by ysabik           ###   ########.fr       */
+/*   Created: 2024/10/01 12:11:19 by ysabik            #+#    #+#             */
+/*   Updated: 2024/10/01 16:12:13 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LS_H
-# define FT_LS_H
+#include "exec.h"
 
-# include "ft_printf.h"
-# include "flags.h"
-# include "typedefs.h"
-# include "utils.h"
+int	print_entries(t_data *data)
+{
+	t_dir	*tmp;
 
-int	parse(t_data *data, int argc, char **argv);
-int	exec(t_data *data);
-
-#endif
+	tmp = data->dirs;
+	while (tmp)
+	{
+		if (data->flags & FLAG_RR)
+			ft_printf("%s:\n", tmp->path);
+		// if (data->flags & FLAG_L)
+		// 	print_entries_lines(tmp);
+		// else
+		// 	print_entries_columns(tmp);
+		tmp = tmp->next;
+	}
+	return (0);
+}

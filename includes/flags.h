@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:33:26 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/01 11:33:19 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/01 14:40:04 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@
 
 int	get_c_flag(const char c);
 int	get_s_flag(const char *s);
+int or_flag(int flags, int flag);
 
 # ifndef __FLAGS_C__
 

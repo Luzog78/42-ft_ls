@@ -6,7 +6,7 @@
 #    By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/01 00:00:00 by ysabik            #+#    #+#              #
-#    Updated: 2024/09/27 16:53:00 by ysabik           ###   ########.fr        #
+#    Updated: 2024/10/01 12:18:43 by ysabik           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,9 @@ INCLUDES			= ./includes
 SRC_FILES			= \
 						srcs/main.c \
 						srcs/flags.c \
+						srcs/exec/exec.c \
+						srcs/exec/fill_entries.c \
+						srcs/exec/printing.c \
 						srcs/parsing/parse_long_option.c \
 						srcs/parsing/parse_short_options.c \
 						srcs/parsing/parsing.c \

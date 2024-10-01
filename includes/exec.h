@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ls.h                                            :+:      :+:    :+:   */
+/*   exec.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/27 11:03:20 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/01 11:40:19 by ysabik           ###   ########.fr       */
+/*   Created: 2024/10/01 11:39:47 by ysabik            #+#    #+#             */
+/*   Updated: 2024/10/01 12:10:55 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LS_H
-# define FT_LS_H
+#ifndef EXEC_H
+# define EXEC_H
 
-# include "ft_printf.h"
-# include "flags.h"
-# include "typedefs.h"
-# include "utils.h"
+# include "ft_ls.h"
 
-int	parse(t_data *data, int argc, char **argv);
-int	exec(t_data *data);
+int	fill_entries(t_data *data);
+
+int	print_entries(t_data *data);
 
 #endif

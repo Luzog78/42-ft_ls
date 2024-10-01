@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:34:25 by ysabik            #+#    #+#             */
-/*   Updated: 2024/09/27 16:50:06 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/01 16:03:51 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,14 @@ typedef enum e_bool
 	FALSE,
 	TRUE
 }	t_bool;
+
+typedef enum e_sort
+{
+	DEFAULT_SORT,
+	DIR_SORT,
+	LAST_MODIF_SORT,
+	LAST_ACCESS_SORT,
+}	t_sort;
 
 typedef struct s_strlst
 {
@@ -59,6 +67,7 @@ typedef struct s_data
 {
 	char		*argv0;
 	int			flags;
+	t_sort		sort;
 	t_strlst	*path;
 	t_dir		*dirs;
 }				t_data;
