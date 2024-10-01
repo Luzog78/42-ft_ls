@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 10:30:08 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/01 16:13:02 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/01 17:17:09 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,11 @@ int	main(int argc, char **argv)
 	data.argv0 = argv[0];
 	data.flags = 0;
 	data.sort = DEFAULT_SORT;
+	data.dir_title = FALSE;
 	data.path = NULL;
 	data.dirs = NULL;
 	r = parse(&data, argc, argv);
+	data.dir_title = (data.path && data.path->next) || data.flags & FLAG_RR;
 	ft_printf("flags: %d | ", data.flags);
 	for (int i = 0; i < FLAGS_COUNT; i++)
 	{

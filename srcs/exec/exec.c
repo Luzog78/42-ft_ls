@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 11:02:46 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/01 12:09:54 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/01 17:12:12 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@ static void	print_help(void)
 
 int	exec(t_data *data)
 {
-	int	r;
+	int		r;
+	t_dir	*new_list;
+	t_dir	*tmp;
 
 	if (data->flags & FLAG_HELP)
 	{
@@ -49,7 +51,15 @@ int	exec(t_data *data)
 		return (0);
 	}
 	r = fill_entries(data);
-	if (!r)
-		r = print_entries(data);
+	while (data->dirs) {
+		new_list = NULL;
+		analyse_entries(data, data->dirs, &new_list);
+		dir_add(&new_list, data->dirs->next);
+		print_entries(data, data->dirs, !!new_list);
+		tmp = data->dirs;
+		tmp->next = NULL;
+		dir_free(tmp);
+		data->dirs = new_list;
+	}
 	return (r);
 }

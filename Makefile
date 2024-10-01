@@ -6,7 +6,7 @@
 #    By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/01 00:00:00 by ysabik            #+#    #+#              #
-#    Updated: 2024/10/01 12:18:43 by ysabik           ###   ########.fr        #
+#    Updated: 2024/10/01 16:57:29 by ysabik           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRC_FILES			= \
 						srcs/exec/exec.c \
 						srcs/exec/fill_entries.c \
 						srcs/exec/printing.c \
+						srcs/exec/analyse_entries.c \
 						srcs/parsing/parse_long_option.c \
 						srcs/parsing/parse_short_options.c \
 						srcs/parsing/parsing.c \

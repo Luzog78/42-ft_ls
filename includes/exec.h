@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 11:39:47 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/01 12:10:55 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/01 17:05:31 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 
 int	fill_entries(t_data *data);
 
-int	print_entries(t_data *data);
+int	analyse_entries(t_data *data, t_dir *dir, t_dir **new_list);
+
+int	print_entries(t_data *data, t_dir *dir, t_bool has_next);
 
 #endif
