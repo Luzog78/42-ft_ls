@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:34:25 by ysabik            #+#    #+#             */
-/*   Updated: 2024/09/27 12:34:43 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/09/27 16:50:06 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct s_dir
 
 typedef struct s_data
 {
+	char		*argv0;
 	int			flags;
 	t_strlst	*path;
 	t_dir		*dirs;

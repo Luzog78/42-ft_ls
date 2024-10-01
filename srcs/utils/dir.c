@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:08:30 by ysabik            #+#    #+#             */
-/*   Updated: 2024/09/27 12:27:08 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/09/27 15:29:20 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,17 @@ void	dir_free(t_dir *lst)
 		free(lst);
 		lst = tmp;
 	}
+}
+
+size_t	dir_len(t_dir *lst)
+{
+	size_t	len;
+
+	len = 0;
+	while (lst)
+	{
+		len++;
+		lst = lst->next;
+	}
+	return (len);
 }

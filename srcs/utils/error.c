@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/26 10:30:08 by ysabik            #+#    #+#             */
-/*   Updated: 2024/09/30 17:44:16 by ysabik           ###   ########.fr       */
+/*   Created: 2024/09/27 16:50:44 by ysabik            #+#    #+#             */
+/*   Updated: 2024/09/30 17:21:18 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int	main(int argc, char **argv)
+void	write_error(t_data *data, char *msg)
 {
-	t_data	data;
-	int		r;
+	if (!data->argv0)
+		data->argv0 = "ft_ls";
+	write(2, data->argv0, ft_str_len(data->argv0));
+	write(2, ": ", 2);
+	if (msg)
+		write(2, msg, ft_str_len(msg));
+}
 
-	data.argv0 = argv[0];
-	data.flags = 0;
-	data.path = NULL;
-	data.dirs = NULL;
-	r = parse(&data, argc, argv);
-	ft_printf("flags: %d\n", data.flags);
-	for (t_strlst *tmp = data.path; tmp; tmp = tmp->next)
-		ft_printf("path: %s\n", tmp->str);
-	strlst_free(data.path);
-	dir_free(data.dirs);
-	return (!!r);
+void	write2(char *msg)
+{
+	write(2, msg, ft_str_len(msg));
 }

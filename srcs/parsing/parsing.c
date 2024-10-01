@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 11:04:09 by ysabik            #+#    #+#             */
-/*   Updated: 2024/09/27 15:23:45 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/09/30 17:38:57 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,16 @@ int	parse(t_data *data, int argc, char **argv)
 	{
 		if (argv[i][0] == '-')
 		{
-			if (argv[i][1] == '-' && argv[i][2])
-				r = parse_long_option(data, argv[i] + 2);
+			if (argv[i][1] == '-')
+				r = parse_long_option(data, argv[i]);
 			else if (argv[i][1])
 				r = parse_short_options(data, argv[i] + 1);
 			else
 				strlst_add(&data->path, strlst_new(ft_strdup(argv[i])));
 			if (r)
 				return (r);
-		} else
+		}
+		else
 			strlst_add(&data->path, strlst_new(ft_strdup(argv[i])));
 		i++;
 	}

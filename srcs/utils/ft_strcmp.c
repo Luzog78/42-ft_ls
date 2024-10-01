@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/26 10:30:08 by ysabik            #+#    #+#             */
-/*   Updated: 2024/09/30 17:44:16 by ysabik           ###   ########.fr       */
+/*   Created: 2024/09/27 15:44:39 by ysabik            #+#    #+#             */
+/*   Updated: 2024/09/27 16:39:33 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int	main(int argc, char **argv)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	t_data	data;
-	int		r;
+	size_t	i;
 
-	data.argv0 = argv[0];
-	data.flags = 0;
-	data.path = NULL;
-	data.dirs = NULL;
-	r = parse(&data, argc, argv);
-	ft_printf("flags: %d\n", data.flags);
-	for (t_strlst *tmp = data.path; tmp; tmp = tmp->next)
-		ft_printf("path: %s\n", tmp->str);
-	strlst_free(data.path);
-	dir_free(data.dirs);
-	return (!!r);
+	if (!s1 && !s2)
+		return (0);
+	if (!s1)
+		return (-2147483648);
+	if (!s2)
+		return (2147483647);
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return ((unsigned char) s1[i] - (unsigned char) s2[i]);
 }

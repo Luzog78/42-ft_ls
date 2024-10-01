@@ -6,7 +6,7 @@
 #    By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/01 00:00:00 by ysabik            #+#    #+#              #
-#    Updated: 2024/09/27 12:37:52 by ysabik           ###   ########.fr        #
+#    Updated: 2024/09/27 16:53:00 by ysabik           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,15 @@ NAME				= ft_ls
 INCLUDES			= ./includes
 SRC_FILES			= \
 						srcs/main.c \
+						srcs/flags.c \
 						srcs/parsing/parse_long_option.c \
 						srcs/parsing/parse_short_options.c \
 						srcs/parsing/parsing.c \
-						srcs/utils/entry.c \
 						srcs/utils/dir.c \
+						srcs/utils/entry.c \
+						srcs/utils/error.c \
 						srcs/utils/ft_strdup.c \
+						srcs/utils/ft_strcmp.c \
 						srcs/utils/strlst.c \
 
 BUILD_FOLDER		= ./build
