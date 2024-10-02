@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 11:39:47 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/01 17:05:31 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/02 11:42:25 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,32 @@
 
 # include "ft_ls.h"
 
-int	fill_entries(t_data *data);
+int		fill_entries(t_data *data);
 
-int	analyse_entries(t_data *data, t_dir *dir, t_dir **new_list);
+/* ************************************************************************** */
+/*                            Phase 1: Extraction                             */
+/* ************************************************************************** */
 
-int	print_entries(t_data *data, t_dir *dir, t_bool has_next);
+int		analyse_entries(t_data *data, t_dir *dir);
+
+/* ************************************************************************** */
+/*                           Phase 2: Normalization                           */
+/* ************************************************************************** */
+
+int		normalise_entries(t_data *data, t_dir *dir);
+void	set_dir_formats(t_data *data, t_dir *dir);
+
+/* ************************************************************************** */
+/*                              Phase 3: Sorting                              */
+/* ************************************************************************** */
+
+int		sort_entries(t_data *data, t_dir *dir);
+
+/* ************************************************************************** */
+/*                             Phase 4: Printing                              */
+/* ************************************************************************** */
+
+int		print_entries(t_data *data, t_dir *dir, t_bool has_next);
+int		print_entries_lines(t_data *data, t_dir *dir);
 
 #endif

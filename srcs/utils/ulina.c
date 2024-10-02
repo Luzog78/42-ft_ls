@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   analyse_entries.c                                  :+:      :+:    :+:   */
+/*   ulina.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/01 16:49:37 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/02 10:40:03 by ysabik           ###   ########.fr       */
+/*   Created: 2024/10/02 10:14:31 by ysabik            #+#    #+#             */
+/*   Updated: 2024/10/02 11:42:54 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "exec.h"
+#include "ft_ls.h"
 
-int	analyse_entries(t_data *data, t_dir *dir)
+/**
+ * @brief ul (unsigned long) in a (alpha). Write the number IN the string.
+ * 
+ * @param str The length-th position of the string. (It will go backward)
+ * 
+ * @note Example: unila("0000" + 4, 1234) => "1234"
+ */
+void	ulina(char *str, unsigned long n)
 {
-	(void)data;
-	(void)dir;
-	return (0);
+	while (n)
+	{
+		*--str = n % 10 + '0';
+		n /= 10;
+	}
 }

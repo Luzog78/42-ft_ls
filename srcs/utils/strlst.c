@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 11:59:08 by ysabik            #+#    #+#             */
-/*   Updated: 2024/09/30 17:31:40 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/01 19:57:35 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,10 @@ t_strlst	*strlst_new(char *str)
 
 	if (!str)
 		return (NULL);
-	new = (t_strlst *) malloc(sizeof(t_strlst));
+	new = (t_strlst *) ft_malloc(sizeof(t_strlst));
 	if (!new)
 		return (NULL);
 	new->str = str;
-	new->next = NULL;
 	return (new);
 }
 

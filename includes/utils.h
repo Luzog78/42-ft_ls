@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:01:52 by ysabik            #+#    #+#             */
-/*   Updated: 2024/09/27 16:55:57 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/02 11:26:03 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,15 @@
 
 # include "typedefs.h"
 
+void		*ft_malloc(size_t bytes);
 char		*ft_strdup(const char *s1);
+size_t		ft_strlen(const char *str);
 int			ft_strcmp(const char *s1, const char *s2);
 
 void		write_error(t_data *data, char *msg);
 void		write2(char *msg);
+
+void		ulina(char *str, unsigned long n);
 
 t_strlst	*strlst_new(char *str);
 void		strlst_add(t_strlst **lst, t_strlst *new);

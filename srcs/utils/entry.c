@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:03:28 by ysabik            #+#    #+#             */
-/*   Updated: 2024/09/27 15:29:10 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/02 00:10:54 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,12 @@ t_entry	*entry_new(char *path)
 
 	if (!path)
 		return (NULL);
-	new = (t_entry *) malloc(sizeof(t_entry));
+	new = (t_entry *) ft_malloc(sizeof(t_entry));
 	if (!new)
 		return (NULL);
 	new->path = path;
-	new->name = NULL;
-	new->type = 0;
+	new->type = '-';
 	reset_rights(new);
-	new->hidden = FALSE;
-	new->nlink = 0;
-	new->owner = NULL;
-	new->group = NULL;
-	new->size = 0;
-	new->mtime = 0;
-	new->linked_to = NULL;
-	new->color = NULL;
-	new->next = NULL;
 	return (new);
 }
 

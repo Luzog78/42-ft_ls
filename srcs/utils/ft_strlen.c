@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   analyse_entries.c                                  :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/01 16:49:37 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/02 10:40:03 by ysabik           ###   ########.fr       */
+/*   Created: 2024/10/02 11:25:11 by ysabik            #+#    #+#             */
+/*   Updated: 2024/10/02 11:25:42 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "exec.h"
+#include "ft_ls.h"
 
-int	analyse_entries(t_data *data, t_dir *dir)
+size_t	ft_strlen(const char *str)
 {
-	(void)data;
-	(void)dir;
-	return (0);
+	size_t	len;
+
+	if (!str)
+		return (0);
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
 }

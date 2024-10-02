@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 16:13:03 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/01 16:19:41 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/02 11:43:59 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ int	get_s_flag(const char *s)
  * g -> -l
  * d -> -R
  */
-int or_flag(int flags, int flag)
+int	or_flag(int flags, int flag)
 {
 	if ((flag & FLAG_L && flags & FLAG_G) || (flag & FLAG_RR && flags & FLAG_D)
 		|| (flag & FLAG_R && flags & FLAG_F))

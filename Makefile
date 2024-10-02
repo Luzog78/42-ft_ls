@@ -6,7 +6,7 @@
 #    By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/01 00:00:00 by ysabik            #+#    #+#              #
-#    Updated: 2024/10/01 16:57:29 by ysabik           ###   ########.fr        #
+#    Updated: 2024/10/02 11:26:14 by ysabik           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,19 +17,26 @@ INCLUDES			= ./includes
 SRC_FILES			= \
 						srcs/main.c \
 						srcs/flags.c \
+						srcs/exec/analyse_entries.c \
 						srcs/exec/exec.c \
 						srcs/exec/fill_entries.c \
-						srcs/exec/printing.c \
-						srcs/exec/analyse_entries.c \
+						srcs/exec/normalise_entries.c \
+						srcs/exec/print_entries.c \
+						srcs/exec/print_entries_lines.c \
+						srcs/exec/set_dir_formats.c \
+						srcs/exec/sort_entries.c \
 						srcs/parsing/parse_long_option.c \
 						srcs/parsing/parse_short_options.c \
 						srcs/parsing/parsing.c \
 						srcs/utils/dir.c \
 						srcs/utils/entry.c \
 						srcs/utils/error.c \
+						srcs/utils/ft_malloc.c \
 						srcs/utils/ft_strdup.c \
+						srcs/utils/ft_strlen.c \
 						srcs/utils/ft_strcmp.c \
 						srcs/utils/strlst.c \
+						srcs/utils/ulina.c \
 
 BUILD_FOLDER		= ./build
 

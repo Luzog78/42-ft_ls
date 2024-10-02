@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 12:13:49 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/01 16:26:10 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/02 11:31:34 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,44 @@ int	fill_entries(t_data *data)
 	dir_add(&o, c);
 	dir_add(&o, dir);
 	data->dirs = o;
+
+	d_a->type = 'd';
+	d_b->type = 'd';
+	d_c->type = 'd';
+	d_dir->type = 'd';
+
+	d_a->rights[0] = 'r';
+	d_b->rights[0] = 'r';
+	d_c->rights[0] = 'r';
+	d_dir->rights[0] = 'r';
+
+	d_a->size = 4096;
+	d_b->size = 4096;
+	d_c->size = 4096;
+	d_dir->size = 4096;
+
+	file1->rights[0] = 'r';
+	file2->rights[0] = 'r';
+	file3->rights[0] = 'r';
+	file4->rights[0] = 'r';
+	file5->rights[0] = 'r';
+	file6->rights[0] = 'r';
+
+	file1->rights[1] = 'w';
+	file2->rights[1] = 'w';
+	file3->rights[1] = 'w';
+	file4->rights[1] = 'w';
+	file5->rights[1] = 'w';
+	file6->rights[1] = 'w';
+
+	file1->rights[2] = 'x';
+	file2->rights[2] = 'x';
+
+	file1->size = 42;
+	file2->size = 123;
+	file3->size = 88004;
+	file4->size = 0;
+	file5->size = 123456789;
+	file6->size = 1;
 	return (0);
 }

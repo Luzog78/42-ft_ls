@@ -6,13 +6,14 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:34:25 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/01 16:54:15 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/02 11:42:37 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TYPEDEFS_H
 # define TYPEDEFS_H
 
+typedef struct stat			t_stat;
 typedef unsigned long long	t_ull;
 
 typedef enum e_bool
@@ -40,14 +41,16 @@ typedef struct s_entry
 	char			*path;
 	char			*name;
 
+	t_stat			stat;
+
 	char			type;
 	char			rights[9];
-	t_bool			hidden;
-	int				nlink;
+	size_t			nlink;
 	char			*owner;
 	char			*group;
-	int				size;
-	t_ull			*mtime;
+	size_t			major;
+	size_t			size;
+	char			*date;
 
 	char			*linked_to;
 	char			*color;
@@ -60,6 +63,24 @@ typedef struct s_dir
 	char			*path;
 	char			*name;
 	t_entry			*entries;
+
+	t_ull			total_blocks;
+
+	size_t			nlink_len;
+	size_t			owner_len;
+	size_t			group_len;
+	size_t			major_len;
+	size_t			size_len;
+	size_t			date_len;
+	size_t			name_len;
+	char			*chmod_format;
+	char			*owner_format;
+	char			*group_format;
+	char			*major_format;
+	char			*size_format;
+	char			*date_format;
+	char			*name_format;
+
 	struct s_dir	*next;
 }					t_dir;
 

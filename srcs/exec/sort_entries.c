@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   analyse_entries.c                                  :+:      :+:    :+:   */
+/*   sort_entries.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/01 16:49:37 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/02 10:40:03 by ysabik           ###   ########.fr       */
+/*   Created: 2024/10/02 10:44:36 by ysabik            #+#    #+#             */
+/*   Updated: 2024/10/02 10:44:41 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "exec.h"
 
-int	analyse_entries(t_data *data, t_dir *dir)
+int	sort_entries(t_data *data, t_dir *dir)
 {
 	(void)data;
 	(void)dir;

@@ -6,12 +6,16 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 11:03:20 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/01 11:40:19 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/02 09:29:43 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_LS_H
 # define FT_LS_H
+
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <unistd.h>
 
 # include "ft_printf.h"
 # include "flags.h"
