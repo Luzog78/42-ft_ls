@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   analyse_entries.c                                  :+:      :+:    :+:   */
+/*   join_path.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/01 16:49:37 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/02 10:40:03 by ysabik           ###   ########.fr       */
+/*   Created: 2024/10/02 13:23:01 by ysabik            #+#    #+#             */
+/*   Updated: 2024/10/02 15:41:47 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "exec.h"
+#include "ft_ls.h"
 
-int	analyse_entries(t_data *data, t_dir *dir)
+char	*join_path(char *dir, char *name)
 {
-	(void)data;
-	(void)dir;
-	return (0);
+	char	*path;
+	size_t	i;
+
+	path = (char *) ft_malloc(ft_strlen(dir) + ft_strlen(name) + 2);
+	if (!path)
+		return (NULL);
+	i = 0;
+	while (*dir)
+		path[i++] = *dir++;
+	if (path[i - 1] != '/')
+		path[i++] = '/';
+	while (*name)
+		path[i++] = *name++;
+	path[i] = '\0';
+	return (path);
 }

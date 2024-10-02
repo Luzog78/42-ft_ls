@@ -6,12 +6,20 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:34:25 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/02 11:42:37 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/02 15:16:05 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TYPEDEFS_H
 # define TYPEDEFS_H
+
+# include <dirent.h>
+# include <sys/types.h>
+# include <sys/sysmacros.h>
+# include <sys/stat.h>
+# include <pwd.h>
+# include <grp.h>
+# include <time.h>
 
 typedef struct stat			t_stat;
 typedef unsigned long long	t_ull;
@@ -44,7 +52,7 @@ typedef struct s_entry
 	t_stat			stat;
 
 	char			type;
-	char			rights[9];
+	char			rights[10];
 	size_t			nlink;
 	char			*owner;
 	char			*group;
@@ -64,6 +72,9 @@ typedef struct s_dir
 	char			*name;
 	t_entry			*entries;
 
+	DIR				*dir;
+
+	t_ull			total_files;
 	t_ull			total_blocks;
 
 	size_t			nlink_len;
@@ -77,6 +88,7 @@ typedef struct s_dir
 	char			*owner_format;
 	char			*group_format;
 	char			*major_format;
+	char			*major_spacing;
 	char			*size_format;
 	char			*date_format;
 	char			*name_format;
@@ -90,7 +102,6 @@ typedef struct s_data
 	int			flags;
 	t_sort		sort;
 	t_bool		dir_title;
-	t_strlst	*path;
 	t_dir		*dirs;
 }				t_data;
 

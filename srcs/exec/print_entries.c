@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 12:11:19 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/02 10:05:25 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/02 14:16:57 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	print_entries(t_data *data, t_dir *dir, t_bool has_next)
 	int	r;
 
 	if (data->dir_title)
-		ft_printf("%s:\n", dir->path);
+		ft_printf("%s:\n", dir->name);
 	if (data->flags & FLAG_CC)
 		r = print_entries_columns(data, dir);
 	else

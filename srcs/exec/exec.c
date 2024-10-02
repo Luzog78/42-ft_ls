@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 11:02:46 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/02 11:41:17 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/02 14:14:08 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,21 @@ static void	print_help(void)
 		);
 }
 
-static void	update_new_list(t_dir **new_list, t_dir *dir)
+static void	update_new_list(int flags, t_dir **new_list, t_dir *dir)
 {
-	// TODO: The code is correct !, But in comment for now, because analysis doesnt exist.
-	// t_entry	*tmp;
+	t_entry	*tmp;
 
-	// tmp = dir->entries;
-	// while (tmp)
-	// {
-	// 	if (tmp->type == 'd' && ft_strcmp(tmp->name, ".")
-	// 		&& ft_strcmp(tmp->name, ".."))
-	// 		dir_add(new_list, dir_new(ft_strdup(tmp->path)));
-	// 	tmp = tmp->next;
-	// }
+	if (flags & FLAG_RR)
+	{
+		tmp = dir->entries;
+		while (tmp)
+		{
+			if (tmp->type == 'd' && ft_strcmp(tmp->name, ".")
+				&& ft_strcmp(tmp->name, ".."))
+				dir_add(new_list, dir_new(ft_strdup(tmp->path)));
+			tmp = tmp->next;
+		}
+	}
 	dir_add(new_list, dir->next);
 }
 
@@ -77,13 +79,14 @@ int	exec(t_data *data)
 		print_help();
 		return (0);
 	}
-	r = fill_entries(data);
 	while (data->dirs) {
 		new_list = NULL;
-		analyse_entries(data, data->dirs);
+		r = analyse_dir(data, data->dirs);
+		if (r)
+			continue ;
 		normalise_entries(data, data->dirs);
 		sort_entries(data, data->dirs);
-		update_new_list(&new_list, data->dirs);
+		update_new_list(data->flags, &new_list, data->dirs);
 		print_entries(data, data->dirs, !!new_list);
 		tmp = data->dirs;
 		tmp->next = NULL;
