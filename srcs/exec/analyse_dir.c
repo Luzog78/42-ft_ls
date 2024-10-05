@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 16:49:37 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/02 15:39:57 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/05 16:30:57 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,25 @@ static char	get_type(mode_t mode)
 
 static void	get_rights(char *rights, mode_t mode)
 {
-	rights[0] = (mode & S_IRUSR) ? 'r' : '-';
-	rights[1] = (mode & S_IWUSR) ? 'w' : '-';
-	rights[2] = (mode & S_IXUSR) ? 'x' : '-';
-	rights[3] = (mode & S_IRGRP) ? 'r' : '-';
-	rights[4] = (mode & S_IWGRP) ? 'w' : '-';
-	rights[5] = (mode & S_IXGRP) ? 'x' : '-';
-	rights[6] = (mode & S_IROTH) ? 'r' : '-';
-	rights[7] = (mode & S_IWOTH) ? 'w' : '-';
-	rights[8] = (mode & S_IXOTH) ? 'x' : '-';
+	short	i;
+
+	rights[0] = !!(mode & S_IRUSR) * 'r';
+	rights[1] = !!(mode & S_IWUSR) * 'w';
+	rights[2] = !!(mode & S_IXUSR) * 'x';
+	rights[3] = !!(mode & S_IRGRP) * 'r';
+	rights[4] = !!(mode & S_IWGRP) * 'w';
+	rights[5] = !!(mode & S_IXGRP) * 'x';
+	rights[6] = !!(mode & S_IROTH) * 'r';
+	rights[7] = !!(mode & S_IWOTH) * 'w';
+	rights[8] = !!(mode & S_IXOTH) * 'x';
 	rights[9] = '\0';
+	i = 0;
+	while (i < 9)
+	{
+		if (!rights[i])
+			rights[i] = '-';
+		i++;
+	}
 }
 
 static char	*get_owner(uid_t uid)

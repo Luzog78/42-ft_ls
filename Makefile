@@ -6,7 +6,7 @@
 #    By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/01 00:00:00 by ysabik            #+#    #+#              #
-#    Updated: 2024/10/02 14:45:26 by ysabik           ###   ########.fr        #
+#    Updated: 2024/10/05 16:00:49 by ysabik           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRC_FILES			= \
 						srcs/utils/dir.c \
 						srcs/utils/entry.c \
 						srcs/utils/error.c \
+						srcs/utils/ft_isalnum.c \
 						srcs/utils/ft_itoa.c \
 						srcs/utils/ft_malloc.c \
 						srcs/utils/ft_strcmp.c \
@@ -37,8 +38,10 @@ SRC_FILES			= \
 						srcs/utils/ft_strlen.c \
 						srcs/utils/get_time.c \
 						srcs/utils/join_path.c \
+						srcs/utils/remove_diacritics.c \
 						srcs/utils/strlst.c \
 						srcs/utils/ulina.c \
+						srcs/utils/undiacritics.c \
 
 BUILD_FOLDER		= ./build
 

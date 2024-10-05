@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 11:02:46 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/02 14:14:08 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/05 16:23:32 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,8 @@ int	exec(t_data *data)
 		print_help();
 		return (0);
 	}
-	while (data->dirs) {
+	while (data->dirs)
+	{
 		new_list = NULL;
 		r = analyse_dir(data, data->dirs);
 		if (r)

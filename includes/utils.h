@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:01:52 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/02 14:45:13 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/05 16:00:32 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "typedefs.h"
 
+t_bool		ft_isalnum(char c);
 char		*ft_itoa(int n);
 void		*ft_malloc(size_t bytes);
 char		*ft_strdup(const char *s1);
@@ -27,6 +28,9 @@ void		write2(char *msg);
 void		ulina(char *str, unsigned long n);
 char		*get_time(time_t *_time);
 char		*join_path(char *dir, char *name);
+char		*remove_diacritics(char *str, t_bool alnum_only);
+void		undiacritize(t_dir *dir);
+int			undiacritics_sort(char *s1, char *s2);
 
 t_strlst	*strlst_new(char *str);
 void		strlst_add(t_strlst **lst, t_strlst *new);

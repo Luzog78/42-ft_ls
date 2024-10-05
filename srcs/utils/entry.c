@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:03:28 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/02 14:40:16 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/05 15:43:12 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	entry_free(t_entry *lst)
 		tmp = lst->next;
 		free(lst->path);
 		free(lst->name);
+		free(lst->undiacritized);
 		free(lst->owner);
 		free(lst->group);
 		free(lst->date);

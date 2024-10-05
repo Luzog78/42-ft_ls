@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/26 10:30:08 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/05 16:20:10 by ysabik           ###   ########.fr       */
+/*   Created: 2024/10/03 14:40:26 by ysabik            #+#    #+#             */
+/*   Updated: 2024/10/03 14:42:48 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int	main(int argc, char **argv)
+t_bool	ft_isalnum(char c)
 {
-	t_data	data;
-	int		r;
-
-	data.argv0 = argv[0];
-	data.flags = 0;
-	data.sort = DEFAULT_SORT;
-	data.dir_title = FALSE;
-	data.dirs = NULL;
-	r = parse(&data, argc, argv);
-	data.dir_title = (data.dirs && data.dirs->next) || data.flags & FLAG_RR;
-	if (!r)
-		r = exec(&data);
-	dir_free(data.dirs);
-	return (r);
+	return ((c >= '0' && c <= '9') || (c >= 'a' && c <= 'z')
+		|| (c >= 'A' && c <= 'Z'));
 }
