@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 16:49:37 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/05 16:30:57 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/06 14:54:56 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ int	analyse_dir(t_data *data, t_dir *dir)
 {
 	struct dirent	*file;
 
-	dir->name = ft_strdup(dir->path); // TODO: here to get the userfriendly name if --color
+	dir->name = ft_strdup(dir->path); // TODO: here to get the userfriendly name
 	dir->dir = opendir(dir->path);
 	if (!dir->dir)
 	{

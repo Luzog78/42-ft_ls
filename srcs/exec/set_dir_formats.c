@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 10:53:17 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/02 15:38:07 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/05 17:58:51 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,10 @@ static void	set_dir_len(t_data *data, t_dir *dir)
 			update_field(&dir->date_len, ft_strlen(tmp->date));
 		}
 		else
-			update_field(&dir->name_len, ft_strlen(tmp->name));
+		{
+			tmp->name_len = ft_strlen(tmp->name);
+			update_field(&dir->name_len, tmp->name_len);
+		}
 		tmp = tmp->next;
 	}
 }
