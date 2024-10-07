@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 11:39:47 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/05 18:03:53 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/07 09:26:49 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@
 /* ************************************************************************** */
 
 int		analyse_dir(t_data *data, t_dir *dir);
+char	analysis_get_type(mode_t mode);
+void	analysis_get_rights(char *rights, mode_t mode);
+char	*analysis_get_owner(uid_t uid);
+char	*analysis_get_group(gid_t gid);
+char	*analysis_get_linked_to(char *path);
 
 /* ************************************************************************** */
 /*                           Phase 2: Normalization                           */
