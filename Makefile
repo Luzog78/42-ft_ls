@@ -6,7 +6,7 @@
 #    By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/01 00:00:00 by ysabik            #+#    #+#              #
-#    Updated: 2024/10/07 09:28:03 by ysabik           ###   ########.fr        #
+#    Updated: 2024/10/07 11:14:48 by ysabik           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,9 @@ SRC_FILES			= \
 						srcs/utils/ft_malloc.c \
 						srcs/utils/ft_strcmp.c \
 						srcs/utils/ft_strdup.c \
+						srcs/utils/ft_strjoin.c \
 						srcs/utils/ft_strlen.c \
+						srcs/utils/ft_toupper.c \
 						srcs/utils/get_time.c \
 						srcs/utils/join_path.c \
 						srcs/utils/remove_diacritics.c \

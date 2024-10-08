@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ls.h                                            :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/27 11:03:20 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/07 09:34:31 by ysabik           ###   ########.fr       */
+/*   Created: 2024/10/07 10:59:50 by ysabik            #+#    #+#             */
+/*   Updated: 2024/10/07 11:00:47 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LS_H
-# define FT_LS_H
+#include "ft_ls.h"
 
-# include "ft_printf.h"
-# include "colors.h"
-# include "flags.h"
-# include "typedefs.h"
-# include "utils.h"
-
-int	parse(t_data *data, int argc, char **argv);
-int	exec(t_data *data);
-
-#endif
+unsigned char	ft_toupper(char c)
+{
+	if (c >= 'a' && c <= 'z')
+		return ((unsigned char) c - 32);
+	return ((unsigned char) c);
+}

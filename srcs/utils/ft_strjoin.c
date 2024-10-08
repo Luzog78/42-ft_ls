@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ls.h                                            :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/27 11:03:20 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/07 09:34:31 by ysabik           ###   ########.fr       */
+/*   Created: 2024/10/07 11:14:00 by ysabik            #+#    #+#             */
+/*   Updated: 2024/10/07 11:14:14 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LS_H
-# define FT_LS_H
+#include "ft_ls.h"
 
-# include "ft_printf.h"
-# include "colors.h"
-# include "flags.h"
-# include "typedefs.h"
-# include "utils.h"
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*new;
+	size_t	i;
+	size_t	j;
 
-int	parse(t_data *data, int argc, char **argv);
-int	exec(t_data *data);
-
-#endif
+	if (!s1 || !s2)
+		return (NULL);
+	new = (char *) ft_malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!new)
+		return (NULL);
+	i = 0;
+	while (s1[i])
+	{
+		new[i] = s1[i];
+		i++;
+	}
+	j = 0;
+	while (s2[j])
+	{
+		new[i + j] = s2[j];
+		j++;
+	}
+	new[i + j] = '\0';
+	return (new);
+}

@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 10:05:16 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/02 14:35:05 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/07 11:07:28 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ static void	print_line(t_data *data, t_dir *dir, t_entry *entry)
 		ft_printf(dir->size_format, entry->size);
 		ft_printf(dir->date_format, entry->date);
 	}
-	write(1, entry->name, ft_strlen(entry->name));
+	if (entry->color)
+		ft_printf("%s%s%s", entry->color, entry->name, COLR_RESET);
+	else
+		write(1, entry->name, ft_strlen(entry->name));
 	if (data->flags & (FLAG_L | FLAG_G) && entry->type == 'l')
 		ft_printf(" -> %s", entry->linked_to);
 }
