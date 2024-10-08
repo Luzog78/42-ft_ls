@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 11:02:46 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/05 16:23:32 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/08 09:20:04 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,20 @@ static void	update_new_list(int flags, t_dir **new_list, t_dir *dir)
 	dir_add(new_list, dir->next);
 }
 
+static void	exec_dir(t_data *data, t_dir **new_list, int r, int *res) {
+	if (r)
+	{
+		if (r > *res)
+			*res = r;
+		update_new_list(data->flags, new_list, data->dirs);
+		return ;
+	}
+	normalise_entries(data, data->dirs);
+	sort_entries(data, data->dirs);
+	update_new_list(data->flags, new_list, data->dirs);
+	print_entries(data, data->dirs, !!*new_list);
+}
+
 /**
  * Phases of the program:
  * 
@@ -71,28 +85,22 @@ static void	update_new_list(int flags, t_dir **new_list, t_dir *dir)
 int	exec(t_data *data)
 {
 	int		r;
+	int		res;
 	t_dir	*new_list;
 	t_dir	*tmp;
 
 	if (data->flags & FLAG_HELP)
-	{
-		print_help();
-		return (0);
-	}
+		return (print_help(), 0);
+	res = 0;
 	while (data->dirs)
 	{
 		new_list = NULL;
 		r = analyse_dir(data, data->dirs);
-		if (r)
-			continue ;
-		normalise_entries(data, data->dirs);
-		sort_entries(data, data->dirs);
-		update_new_list(data->flags, &new_list, data->dirs);
-		print_entries(data, data->dirs, !!new_list);
+		exec_dir(data, &new_list, r, &res);
 		tmp = data->dirs;
 		tmp->next = NULL;
 		dir_free(tmp);
 		data->dirs = new_list;
 	}
-	return (r);
+	return (res);
 }
