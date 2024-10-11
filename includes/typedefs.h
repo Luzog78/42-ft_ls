@@ -6,20 +6,21 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:34:25 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/05 17:58:06 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/11 11:26:38 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TYPEDEFS_H
 # define TYPEDEFS_H
 
-# include <dirent.h>
-# include <sys/types.h>
 # include <sys/sysmacros.h>
+# include <sys/types.h>
+# include <sys/ioctl.h>
 # include <sys/stat.h>
+# include <dirent.h>
+# include <time.h>
 # include <pwd.h>
 # include <grp.h>
-# include <time.h>
 
 typedef struct stat			t_stat;
 typedef unsigned long long	t_ull;
@@ -50,6 +51,7 @@ typedef struct s_entry
 	char			*name;
 	size_t			name_len;
 	char			*undiacritized;
+	size_t			undiacritized_len;
 
 	t_stat			stat;
 
@@ -101,11 +103,15 @@ typedef struct s_dir
 
 typedef struct s_data
 {
-	char		*argv0;
-	int			flags;
-	t_sort		sort;
-	t_bool		dir_title;
-	t_dir		*dirs;
+	char			*argv0;
+	int				flags;
+	t_sort			sort;
+	t_bool			dir_title;
+	t_dir			*dirs;
+
+	unsigned short	ws_row;
+	unsigned short	ws_col;
+	t_bool			is_tty;
 }				t_data;
 
 #endif

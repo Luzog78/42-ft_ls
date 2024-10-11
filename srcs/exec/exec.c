@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 11:02:46 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/08 09:20:04 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/11 11:26:53 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ static void	update_new_list(int flags, t_dir **new_list, t_dir *dir)
 	dir_add(new_list, dir->next);
 }
 
-static void	exec_dir(t_data *data, t_dir **new_list, int r, int *res) {
+static void	exec_dir(t_data *data, t_dir **new_list, int r, int *res)
+{
 	if (r)
 	{
 		if (r > *res)

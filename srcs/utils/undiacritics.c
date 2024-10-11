@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 15:59:45 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/07 10:59:35 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/11 10:15:38 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ void	undiacritize(t_dir *dir)
 	tmp = dir->entries;
 	while (tmp)
 	{
-		tmp->undiacritized = remove_diacritics(tmp->path, FALSE);
+		tmp->undiacritized = remove_diacritics(tmp->name, FALSE);
 		if (!tmp->undiacritized)
-			tmp->undiacritized = ft_strdup(tmp->path);
+			tmp->undiacritized = ft_strdup(tmp->name);
+		tmp->undiacritized_len = ft_strlen(tmp->undiacritized);
 		tmp = tmp->next;
 	}
 }
@@ -41,14 +42,16 @@ int	undiacritics_sort(char *s1, char *s2)
 	size_t	i;
 	size_t	j;
 
-	i = 0;
-	j = 0;
+	i = -1;
+	j = -1;
+	_increment_ij(s1, s2, &i, &j);
 	while (s1[i] && s2[j] && ft_toupper(s1[i]) == ft_toupper(s2[j]))
 		_increment_ij(s1, s2, &i, &j);
 	if (s1[i] != s2[j])
 		return (ft_toupper(s1[i]) - ft_toupper(s2[j]));
-	i = 0;
-	j = 0;
+	i = -1;
+	j = -1;
+	_increment_ij(s1, s2, &i, &j);
 	while (s1[i] && s2[j] && s1[i] == s2[j])
 		_increment_ij(s1, s2, &i, &j);
 	if (s1[i] != s2[j])

@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 11:39:47 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/07 09:26:49 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/11 11:25:18 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,22 @@
 
 # include "ft_ls.h"
 
-# define MAX_COLUMNS	100
+/**
+ * @brief	Default line length for non-tty
+ */
+# define NOTTY_COLS	70
+
+typedef struct s_pattern
+{
+	t_dir	*dir;
+	size_t	max_line_len;
+
+	size_t	*columns;
+	size_t	line_len;
+	size_t	nb;
+	size_t	rows;
+	size_t	*entries_len;
+}	t_pattern;
 
 /* ************************************************************************** */
 /*                            Phase 1: Extraction                             */
@@ -47,5 +62,7 @@ void	sort_entries(t_data *data, t_dir *dir);
 
 int		print_entries(t_data *data, t_dir *dir, t_bool has_next);
 int		print_entries_lines(t_data *data, t_dir *dir);
+int		print_entries_columns(t_data *data, t_dir *dir);
+size_t	*columns_pattern(t_dir *dir, size_t max_line_len);
 
 #endif

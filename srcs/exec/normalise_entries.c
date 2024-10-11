@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 10:44:23 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/07 11:32:05 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/11 11:27:41 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,19 +69,19 @@ static t_bool	_match(const char **arr, const char *path)
  */
 static t_bool	_is_file(const char *path, int file_type)
 {
-	const char	**archive = (const char *[38]) {
+	const char	**archive = (const char	*[38]){
 		".7z", ".ace", ".alz", ".arc", ".arj", ".bz2", ".cab", ".cpio", ".ear",
 		".gz", ".jar", ".lha", ".lz", ".lz4", ".lzh", ".lzma", ".lzo", ".rar",
 		".rz", ".tar", ".tar.bz2", ".tar.gz", ".tar.lz", ".tar.xz", ".tar.Z",
 		".tbz2", ".tgz", ".tlz", ".txz", ".war", ".wim", ".xz", ".z", ".zip",
 		".zoo", ".zst", NULL
 	};
-	const char	**audio_graphic = (const char *[18]) {
+	const char	**audio_graphic = (const char	*[18]){
 		".avi", ".avif", ".bmp", ".flv", ".gif", ".jpeg", ".jpg", ".mkv",
 		".mov", ".mp4", ".png", ".svg", ".tif", ".tiff", ".webm", ".webp",
 		".wmv", NULL
 	};
-	const char	**audio = (const char *[10]) {
+	const char	**audio = (const char	*[10]){
 		".aac", ".au", ".flac", ".m4a", ".mp3", ".oga", ".ogg", ".wav", NULL
 	};
 
@@ -97,7 +97,7 @@ static t_bool	_is_file(const char *path, int file_type)
 static void	apply_color(t_dir *dir)
 {
 	t_entry	*entry;
-	
+
 	entry = dir->entries;
 	while (entry)
 	{
