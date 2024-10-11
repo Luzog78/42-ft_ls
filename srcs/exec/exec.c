@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 11:02:46 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/11 11:26:53 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/11 12:15:10 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,22 @@ static void	exec_dir(t_data *data, t_dir **new_list, int r, int *res)
 	normalise_entries(data, data->dirs);
 	sort_entries(data, data->dirs);
 	update_new_list(data->flags, new_list, data->dirs);
+	if (data->is_tty)
+		ft_printf("\r%*c\r", data->ws_col, ' ');
 	print_entries(data, data->dirs, !!*new_list);
+}
+
+static void	_print_analysis(t_data *data)
+{
+	size_t	len;
+
+	len = ft_strlen(data->dirs->path);
+	if (len <= (size_t) data->ws_col - 17)
+		ft_printf("%sAnalysis of '%s%s%s'...%s", COLR_FAINT, COLR_RESET,
+			data->dirs->path, COLR_FAINT, COLR_RESET);
+	else
+		ft_printf("%sAnalysis of '...%s%s%s'...%s", COLR_FAINT, COLR_RESET,
+			data->dirs->path + len - data->ws_col + 21, COLR_FAINT, COLR_RESET);
 }
 
 /**
@@ -96,6 +111,8 @@ int	exec(t_data *data)
 	while (data->dirs)
 	{
 		new_list = NULL;
+		if (data->is_tty)
+			_print_analysis(data);
 		r = analyse_dir(data, data->dirs);
 		exec_dir(data, &new_list, r, &res);
 		tmp = data->dirs;

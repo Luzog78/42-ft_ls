@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 09:33:38 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/07 10:19:57 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/11 12:06:00 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define COLR_BLINK			"\033[5m"
 # define COLR_REVERSE		"\033[7m"
 # define COLR_HIDDEN		"\033[8m"
+# define COLR_STRIKE		"\033[9m"
 
 # define COLR_BG_RED		"\033[41m"
 # define COLR_BG_GREEN		"\033[42m"
