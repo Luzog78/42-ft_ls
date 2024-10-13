@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 10:05:16 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/07 11:07:28 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/13 17:10:13 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,22 @@
 static void	print_line(t_data *data, t_dir *dir, t_entry *entry)
 {
 	if (data->flags & (FLAG_L | FLAG_G))
-		ft_printf(dir->chmod_format, entry->type, entry->rights, entry->nlink);
+	{
+		ft_printf("%c%s", entry->type, entry->rights);
+		if (dir->contains_acl)
+			ft_printf("%c", entry->extended_acl);
+		ft_printf(" %*lu", dir->nlink_len, entry->nlink);
+	}
 	if (data->flags & FLAG_L)
-		ft_printf(dir->owner_format, entry->owner);
+		ft_printf(" %-*s", dir->owner_len, entry->owner);
 	if (data->flags & (FLAG_L | FLAG_G))
 	{
-		ft_printf(dir->group_format, entry->group);
+		ft_printf("  %-*s", dir->group_len, entry->group);
 		if (entry->type == 'b' || entry->type == 'c')
-			ft_printf(dir->major_format, entry->major);
+			ft_printf(" %*lu, ", dir->major_len, entry->major);
 		else
-			ft_printf(dir->major_spacing, "");
-		ft_printf(dir->size_format, entry->size);
-		ft_printf(dir->date_format, entry->date);
+			ft_printf(" %*s", dir->major_len + 2, "");
+		ft_printf(" %*lu %s ", dir->size_len, entry->size, entry->date);
 	}
 	if (entry->color)
 		ft_printf("%s%s%s", entry->color, entry->name, COLR_RESET);

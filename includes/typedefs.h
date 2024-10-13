@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:34:25 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/11 11:26:38 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/13 17:14:37 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <sys/types.h>
 # include <sys/ioctl.h>
 # include <sys/stat.h>
+# include <sys/acl.h>
 # include <dirent.h>
 # include <time.h>
 # include <pwd.h>
@@ -54,9 +55,11 @@ typedef struct s_entry
 	size_t			undiacritized_len;
 
 	t_stat			stat;
+	acl_t			acl;
 
 	char			type;
 	char			rights[10];
+	char			extended_acl;
 	size_t			nlink;
 	char			*owner;
 	char			*group;
@@ -81,6 +84,7 @@ typedef struct s_dir
 
 	t_ull			total_files;
 	t_ull			total_blocks;
+	t_bool			contains_acl;
 
 	size_t			nlink_len;
 	size_t			owner_len;
@@ -89,14 +93,6 @@ typedef struct s_dir
 	size_t			size_len;
 	size_t			date_len;
 	size_t			name_len;
-	char			*chmod_format;
-	char			*owner_format;
-	char			*group_format;
-	char			*major_format;
-	char			*major_spacing;
-	char			*size_format;
-	char			*date_format;
-	char			*name_format;
 
 	struct s_dir	*next;
 }					t_dir;

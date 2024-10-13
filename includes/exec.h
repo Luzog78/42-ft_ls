@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 11:39:47 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/11 11:25:18 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/13 17:12:49 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	*analysis_get_linked_to(char *path);
 /* ************************************************************************** */
 
 int		normalise_entries(t_data *data, t_dir *dir);
-void	set_dir_formats(t_data *data, t_dir *dir);
+void	set_dir_len(t_data *data, t_dir *dir);
 
 /* ************************************************************************** */
 /*                              Phase 3: Sorting                              */

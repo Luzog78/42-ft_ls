@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:08:30 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/05 15:43:08 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/13 17:14:45 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,6 @@ void	dir_free(t_dir *lst)
 		free(lst->name);
 		free(lst->path);
 		entry_free(lst->entries);
-		free(lst->chmod_format);
-		free(lst->owner_format);
-		free(lst->group_format);
-		free(lst->major_format);
-		free(lst->major_spacing);
-		free(lst->size_format);
-		free(lst->date_format);
-		free(lst->name_format);
 		free(lst);
 		lst = tmp;
 	}

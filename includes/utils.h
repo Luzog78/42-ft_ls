@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:01:52 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/07 11:14:37 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/13 17:11:13 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int				ft_strcmp(const char *s1, const char *s2);
 void			write_error(t_data *data, char *msg);
 void			write2(char *msg);
 
-void			ulina(char *str, unsigned long n);
 char			*get_time(time_t *_time);
 char			*join_path(char *dir, char *name);
 char			*remove_diacritics(char *str, t_bool alnum_only);

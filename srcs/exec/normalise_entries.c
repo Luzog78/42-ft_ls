@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 10:44:23 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/11 11:27:41 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/13 17:12:52 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ static void	apply_color(t_dir *dir)
 
 int	normalise_entries(t_data *data, t_dir *dir)
 {
-	set_dir_formats(data, dir);
+	set_dir_len(data, dir);
 	if (data->flags & FLAG_COLOR)
 		apply_color(dir);
 	return (0);
