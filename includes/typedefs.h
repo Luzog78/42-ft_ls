@@ -93,6 +93,7 @@ typedef struct s_dir
 	t_ull			total_files;
 	t_ull			total_blocks;
 	t_bool			contains_acl;
+	t_bool			contains_block_char_files;
 
 	size_t			nlink_len;
 	size_t			owner_len;
