@@ -6,14 +6,14 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:33:26 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/02 11:43:03 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/15 08:56:42 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FLAGS_H
 # define FLAGS_H
 
-# define FLAGS_COUNT	14
+# define FLAGS_COUNT	15
 
 # define FLAG_L			1
 # define FLAG_RR		2
@@ -28,7 +28,8 @@
 # define FLAG_COLOR		1024
 # define FLAG_CC		2048
 # define FLAG_1			4096
-# define FLAG_HELP		8192
+# define FLAG_S			8192
+# define FLAG_HELP		16384
 
 # define C_FLAG_L		'l'
 # define C_FLAG_RR		'R'
@@ -43,6 +44,7 @@
 # define C_FLAG_COLOR	0
 # define C_FLAG_CC		'C'
 # define C_FLAG_1		'1'
+# define C_FLAG_S		's'
 # define C_FLAG_HELP	0
 
 # define S_FLAG_L		"--long"
@@ -58,6 +60,7 @@
 # define S_FLAG_COLOR	"--color"
 # define S_FLAG_CC		0
 # define S_FLAG_1		0
+# define S_FLAG_S		0
 # define S_FLAG_HELP	"--help"
 
 # define DESC_L		"List in long format"
@@ -73,6 +76,7 @@
 # define DESC_COLOR	"Colorize the output"
 # define DESC_CC	"List entries in columns"
 # define DESC_1		"List one entry per line"
+# define DESC_S		"Show the file-blocks (8k-bytes) (only with -l -g or -1)"
 # define DESC_HELP	"Print this help"
 
 int	get_c_flag(const char c);

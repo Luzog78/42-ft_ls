@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:34:25 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/13 17:14:37 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/14 13:40:19 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ typedef struct s_entry
 	char			*group;
 	size_t			major;
 	size_t			size;
+	size_t			blocks;
 	char			*date;
 
 	char			*linked_to;
@@ -91,6 +92,7 @@ typedef struct s_dir
 	size_t			group_len;
 	size_t			major_len;
 	size_t			size_len;
+	size_t			blocks_len;
 	size_t			date_len;
 	size_t			name_len;
 

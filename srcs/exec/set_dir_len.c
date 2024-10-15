@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 10:53:17 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/13 17:15:28 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/14 15:05:00 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void	set_dir_len(t_data *data, t_dir *dir)
 	tmp = dir->entries;
 	while (tmp)
 	{
+		if (data->flags & FLAG_S)
+			_update_field(&dir->blocks_len, _nbrlen(tmp->blocks));
 		if (data->flags & (FLAG_L | FLAG_G))
 		{
 			_update_field(&dir->nlink_len, _nbrlen(tmp->nlink));

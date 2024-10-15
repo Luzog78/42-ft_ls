@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 16:13:03 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/02 11:43:59 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/14 13:49:44 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ const int	*g_flags = (const int []){
 	FLAG_COLOR,
 	FLAG_CC,
 	FLAG_1,
+	FLAG_S,
 	FLAG_HELP
 };
 
@@ -45,6 +46,7 @@ const char	*g_c_flags = (const char []){
 	C_FLAG_COLOR,
 	C_FLAG_CC,
 	C_FLAG_1,
+	C_FLAG_S,
 	C_FLAG_HELP
 };
 
@@ -62,6 +64,7 @@ const char	**g_s_flags = (const char *[]){
 	S_FLAG_COLOR,
 	S_FLAG_CC,
 	S_FLAG_1,
+	S_FLAG_S,
 	S_FLAG_HELP
 };
 
@@ -79,6 +82,7 @@ const char	**g_desc_flags = (const char *[]){
 	DESC_COLOR,
 	DESC_CC,
 	DESC_1,
+	DESC_S,
 	DESC_HELP
 };
 
@@ -129,6 +133,7 @@ int	get_s_flag(const char *s)
  * u ->
  * g -> -l
  * d -> -R
+ * s ->
  */
 int	or_flag(int flags, int flag)
 {

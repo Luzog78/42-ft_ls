@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 16:49:37 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/13 17:30:06 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/15 08:55:47 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,12 @@ static void	_check_for_extended_acl(t_dir *dir, t_entry *entry)
 		dir->contains_acl = TRUE;
 }
 
+static void	_update_blocks(t_dir *dir, t_entry *entry)
+{
+	entry->blocks = entry->stat.st_blocks * entry->stat.st_blksize / 8192.0;
+	dir->total_blocks += entry->blocks;
+}
+
 static t_entry	*_analyse_dirent(t_data *data, t_dir *dir, struct dirent *file)
 {
 	t_entry	*entry;
@@ -76,6 +82,7 @@ static t_entry	*_analyse_dirent(t_data *data, t_dir *dir, struct dirent *file)
 	}
 	if (entry->type == 'l')
 		entry->linked_to = analysis_get_linked_to(entry->path);
+	_update_blocks(dir, entry);
 	return (dir->total_files++, entry);
 }
 
@@ -83,7 +90,7 @@ int	analyse_dir(t_data *data, t_dir *dir)
 {
 	struct dirent	*file;
 
-	dir->name = ft_strdup(dir->path); // TODO: here to get the userfriendly name
+	dir->name = ft_strdup(dir->path);
 	dir->dir = opendir(dir->path);
 	if (!dir->dir)
 	{

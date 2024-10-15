@@ -6,12 +6,12 @@
 #    By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/01 00:00:00 by ysabik            #+#    #+#              #
-#    Updated: 2024/10/08 11:24:16 by ysabik           ###   ########.fr        #
+#    Updated: 2024/10/13 17:12:46 by ysabik           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC					= gcc
-CFLAGS				= -Werror -Wall -Wextra -g
+CFLAGS				= -Werror -Wall -Wextra -g -lacl
 NAME				= ft_ls
 INCLUDES			= ./includes
 SRC_FILES			= \
@@ -25,7 +25,7 @@ SRC_FILES			= \
 						srcs/exec/normalise_entries.c \
 						srcs/exec/print_entries.c \
 						srcs/exec/print_entries_lines.c \
-						srcs/exec/set_dir_formats.c \
+						srcs/exec/set_dir_len.c \
 						srcs/exec/sort_entries.c \
 						srcs/parsing/parse_long_option.c \
 						srcs/parsing/parse_short_options.c \
@@ -45,7 +45,6 @@ SRC_FILES			= \
 						srcs/utils/join_path.c \
 						srcs/utils/remove_diacritics.c \
 						srcs/utils/strlst.c \
-						srcs/utils/ulina.c \
 						srcs/utils/undiacritics.c \
 
 BUILD_FOLDER		= ./build
@@ -53,6 +52,7 @@ BUILD_FOLDER		= ./build
 FTPRINTF_FOLDER		= ./42-ft_printf
 FTPRINTF_A			= $(FTPRINTF_FOLDER)/libftprintf.a
 FTPRINTF_FLAGS		= -L $(FTPRINTF_FOLDER) -lftprintf -I $(FTPRINTF_FOLDER)
+CFLAGS				+= $(FTPRINTF_FLAGS)
 
 C_RESET				= \033[0m
 C_BOLD				= \033[1m
@@ -78,7 +78,7 @@ all : $(NAME)
 $(NAME) : $(BUILD_FILES)
 	@echo ""
 	@echo -n "  > $(C_YELLOW)$(C_BOLD)./$(NAME)$(C_RESET):  $(C_DIM)"
-	$(CC) $(CFLAGS) -o $(NAME) $(BUILD_FILES) -I $(INCLUDES) $(FTPRINTF_FLAGS)
+	$(CC) -o $(NAME) $(BUILD_FILES) -I $(INCLUDES) $(CFLAGS)
 	@echo "$(C_RESET)"
 	@echo ""
 	@echo -n "$(C_BOLD)$(C_MAGENTA)>$(C_BLUE)>$(C_CYAN)>$(C_GREEN)"
@@ -111,7 +111,7 @@ $(BUILD_FOLDER)/%.o : %.c | $(FTPRINTF_A)
 	@$(eval TO_COMPILE := 1)
 	@echo -n "  - $(C_GREEN)$<$(C_RESET):  $(C_DIM)"
 	@mkdir -p $(@D)
-	$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDES) $(FTPRINTF_FLAGS)
+	$(CC) -c $< -o $@ -I $(INCLUDES) $(CFLAGS)
 	@echo -n "$(C_RESET)"
 
 define del =
