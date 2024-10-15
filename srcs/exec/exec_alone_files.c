@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 09:52:28 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/15 10:40:27 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/15 12:41:50 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static void	_err(t_data *data, t_entry *previous, t_entry **tmp)
 
 void	exec_alone_files(t_data *data)
 {
+	t_dir	*tmp_dir;
 	t_entry	*previous;
 	t_entry	*tmp;
 	t_entry	*result;
@@ -51,5 +52,8 @@ void	exec_alone_files(t_data *data)
 	normalise_entries(data, data->dirs);
 	sort_entries(data, data->dirs);
 	print_entries(data, data->dirs, !!data->dirs->next);
+	tmp_dir = data->dirs;
 	data->dirs = data->dirs->next;
+	tmp_dir->next = NULL;
+	dir_free(tmp_dir);
 }
