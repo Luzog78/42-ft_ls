@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:01:52 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/13 17:11:13 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/15 10:07:47 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void			strlst_add(t_strlst **lst, t_strlst *new);
 void			strlst_free(t_strlst *lst);
 size_t			strlst_len(t_strlst *lst);
 
-t_entry			*entry_new(char *dir_path, char *name);
+t_entry			*entry_new(char *path, char *name);
 void			entry_add(t_entry **lst, t_entry *new);
 void			entry_free(t_entry *lst);
 size_t			entry_len(t_entry *lst);

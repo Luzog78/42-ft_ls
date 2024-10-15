@@ -6,7 +6,7 @@
 #    By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/01 00:00:00 by ysabik            #+#    #+#              #
-#    Updated: 2024/10/13 17:12:46 by ysabik           ###   ########.fr        #
+#    Updated: 2024/10/15 10:08:40 by ysabik           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,10 @@ SRC_FILES			= \
 						srcs/main.c \
 						srcs/flags.c \
 						srcs/exec/analyse_dir.c \
+						srcs/exec/analyse_file.c \
 						srcs/exec/analysis_utils.c \
 						srcs/exec/exec.c \
+						srcs/exec/exec_alone_files.c \
 						srcs/exec/print_entries_columns.c \
 						srcs/exec/columns_pattern.c \
 						srcs/exec/normalise_entries.c \

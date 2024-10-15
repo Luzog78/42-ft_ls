@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 11:02:46 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/11 12:15:10 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/15 09:52:03 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,8 @@ int	exec(t_data *data)
 	if (data->flags & FLAG_HELP)
 		return (print_help(), 0);
 	res = 0;
+	if (data->dirs && !data->dirs->path)
+		exec_alone_files(data);
 	while (data->dirs)
 	{
 		new_list = NULL;

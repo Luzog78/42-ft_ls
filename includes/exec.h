@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 11:39:47 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/13 17:12:49 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/15 10:45:11 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,14 @@ typedef struct s_pattern
 	size_t	*entries_len;
 }	t_pattern;
 
+void	exec_alone_files(t_data *data);
+
 /* ************************************************************************** */
 /*                            Phase 1: Extraction                             */
 /* ************************************************************************** */
 
 int		analyse_dir(t_data *data, t_dir *dir);
+t_entry	*analyse_file(t_data *data, t_dir *dir, t_entry *entry, char *filename);
 char	analysis_get_type(mode_t mode);
 void	analysis_get_rights(char *rights, mode_t mode);
 char	*analysis_get_owner(uid_t uid);

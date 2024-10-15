@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:03:28 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/13 16:50:41 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/15 09:41:41 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,16 @@ static void	reset_rights(t_entry *entry)
 	entry->rights[i] = '\0';
 }
 
-t_entry	*entry_new(char *dir_path, char *name)
+t_entry	*entry_new(char *path, char *name)
 {
 	t_entry	*new;
 
-	if (!dir_path || !name)
+	if (!path || !name)
 		return (NULL);
 	new = (t_entry *) ft_malloc(sizeof(t_entry));
 	if (!new)
 		return (NULL);
-	new->path = join_path(dir_path, name);
+	new->path = path;
 	new->name = name;
 	new->type = '-';
 	reset_rights(new);
