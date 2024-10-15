@@ -37,13 +37,19 @@ void	analysis_get_rights(char *rights, mode_t mode)
 
 	rights[0] = !!(mode & S_IRUSR) * 'r';
 	rights[1] = !!(mode & S_IWUSR) * 'w';
-	rights[2] = !!(mode & S_IXUSR) * 'x';
+	rights[2] = !!(mode & S_IXUSR) * ('x' - !!(mode & S_ISUID) * 5);
 	rights[3] = !!(mode & S_IRGRP) * 'r';
 	rights[4] = !!(mode & S_IWGRP) * 'w';
-	rights[5] = !!(mode & S_IXGRP) * 'x';
+	rights[5] = !!(mode & S_IXGRP) * ('x' - !!(mode & S_ISGID) * 5);
 	rights[6] = !!(mode & S_IROTH) * 'r';
 	rights[7] = !!(mode & S_IWOTH) * 'w';
-	rights[8] = !!(mode & S_IXOTH) * 'x';
+	rights[8] = !!(mode & S_IXOTH) * ('x' - !!(mode & S_ISVTX) * 4);
+	if (mode & S_ISUID && !(mode & S_IXUSR))
+		rights[2] = 'S';
+	if (mode & S_ISGID && !(mode & S_IXGRP))
+		rights[5] = 'S';
+	if (mode & S_ISVTX && !(mode & S_IXOTH))
+		rights[8] = 'T';
 	rights[9] = '\0';
 	i = 0;
 	while (i < 9)
