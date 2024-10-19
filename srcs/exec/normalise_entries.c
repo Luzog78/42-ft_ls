@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 10:44:23 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/13 17:12:52 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/19 12:20:45 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,8 +101,11 @@ static void	apply_color(t_dir *dir)
 	entry = dir->entries;
 	while (entry)
 	{
-		if (entry->rights[8] == 't')
+		if (entry->rights[8] == 't' || entry->rights[8] == 'T')
 			entry->color = ft_strjoin(COLR_BG_GREEN, COLR_BLACK);
+		else if(entry->rights[5] == 's' || entry->rights[5] == 'S'
+			|| entry->rights[2] == 's' || entry->rights[2] == 'S')
+			entry->color = ft_strjoin(COLR_BG_GREEN, COLR_BLUE);
 		else if (entry->type == 'd')
 			entry->color = ft_strjoin(COLR_BOLD, COLR_BLUE);
 		else if (entry->type == 'l')
