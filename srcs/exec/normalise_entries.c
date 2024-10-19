@@ -101,7 +101,9 @@ static void	apply_color(t_dir *dir)
 	entry = dir->entries;
 	while (entry)
 	{
-		if (entry->type == 'd')
+		if (entry->rights[8] == 't')
+			entry->color = ft_strjoin(COLR_BG_GREEN, COLR_BLACK);
+		else if (entry->type == 'd')
 			entry->color = ft_strjoin(COLR_BOLD, COLR_BLUE);
 		else if (entry->type == 'l')
 			entry->color = ft_strjoin(COLR_BOLD, COLR_CYAN);

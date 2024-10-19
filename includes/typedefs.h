@@ -23,6 +23,13 @@
 # include <pwd.h>
 # include <grp.h>
 
+# ifndef S_ISVTX
+/**
+ * @brief Octal representation of the sticky bit
+ */
+#  define S_ISVTX 01000
+# endif
+
 typedef struct stat			t_stat;
 typedef unsigned long long	t_ull;
 
@@ -86,6 +93,7 @@ typedef struct s_dir
 	t_ull			total_files;
 	t_ull			total_blocks;
 	t_bool			contains_acl;
+	t_bool			contains_block_char_files;
 
 	size_t			nlink_len;
 	size_t			owner_len;

@@ -14,10 +14,12 @@
 
 static void	_default_flags(t_data *data)
 {
+	if (data->is_tty)
+		data->flags |= FLAG_COLOR;
 	if (!(data->flags & (FLAG_1 | FLAG_L | FLAG_G | FLAG_CC)))
 	{
 		if (data->is_tty)
-			data->flags |= FLAG_CC | FLAG_COLOR;
+			data->flags |= FLAG_CC;
 		else
 			data->flags |= FLAG_1;
 	}

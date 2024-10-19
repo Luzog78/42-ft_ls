@@ -35,10 +35,10 @@ static void	print_line(t_data *data, t_dir *dir, t_entry *entry)
 		ft_printf(" %-*s", dir->owner_len, entry->owner);
 	if (data->flags & (FLAG_L | FLAG_G))
 	{
-		ft_printf("  %-*s", dir->group_len, entry->group);
+		ft_printf(" %-*s", dir->group_len, entry->group);
 		if (entry->type == 'b' || entry->type == 'c')
 			ft_printf(" %*lu, ", dir->major_len, entry->major);
-		else
+		else if (dir->contains_block_char_files)
 			ft_printf(" %*s", dir->major_len + 2, "");
 		ft_printf(" %*lu %s ", dir->size_len, entry->size, entry->date);
 	}

@@ -54,6 +54,8 @@ static void	_check_for_extended_acl(t_dir *dir, t_entry *entry)
 static void	_update_fields(t_data *data, t_dir *dir, t_entry *entry)
 {
 	entry->type = analysis_get_type(entry->stat.st_mode);
+	if (dir && (entry->type == 'b' || entry->type == 'c'))
+		dir->contains_block_char_files = TRUE;
 	analysis_get_rights(entry->rights, entry->stat.st_mode);
 	_check_for_extended_acl(dir, entry);
 	entry->nlink = entry->stat.st_nlink;
@@ -71,7 +73,7 @@ static void	_update_fields(t_data *data, t_dir *dir, t_entry *entry)
 	}
 	if (entry->type == 'l')
 		entry->linked_to = analysis_get_linked_to(entry->path);
-	entry->blocks = entry->stat.st_blocks * entry->stat.st_blksize / 8192.0;
+	entry->blocks = entry->stat.st_blocks / 2;
 	if (dir)
 		dir->total_blocks += entry->blocks;
 }

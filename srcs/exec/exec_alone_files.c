@@ -46,6 +46,7 @@ void	exec_alone_files(t_data *data)
 			_err(data, previous, &tmp);
 			continue ;
 		}
+		data->dirs->total_files++;
 		previous = tmp;
 		tmp = tmp->next;
 	}

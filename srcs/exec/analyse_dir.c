@@ -20,10 +20,10 @@ int	analyse_dir(t_data *data, t_dir *dir)
 	dir->dir = opendir(dir->path);
 	if (!dir->dir)
 	{
+		if (data->is_tty)
+			ft_printf("\r%*c\r", data->ws_col, ' ');
 		write_error(data, "cannot access '");
-		write2(dir->name);
-		write2("'\n");
-		return (1);
+		return (write2(dir->name), write2("'\n"), 1);
 	}
 	while (TRUE)
 	{

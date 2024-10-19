@@ -13,6 +13,7 @@
 #ifndef COLORS_H
 # define COLORS_H
 
+# define COLR_BLACK			"\033[30m"
 # define COLR_RED			"\033[31m"
 # define COLR_GREEN			"\033[32m"
 # define COLR_YELLOW		"\033[33m"
