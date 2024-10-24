@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 11:04:09 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/15 10:44:36 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/24 11:20:14 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	_dissociate_files_dirs(t_data *data)
 	t_dir	*alone_files;
 	t_dir	*previous;
 	t_dir	*tmp;
-	DIR		*dir;
+	t_stat	stat;
 
 	alone_files = dir_new("");
 	if (!alone_files)
@@ -55,14 +55,13 @@ static void	_dissociate_files_dirs(t_data *data)
 	tmp = data->dirs;
 	while (tmp)
 	{
-		dir = opendir(tmp->path);
-		if (!dir || data->flags & FLAG_D)
+		if (data->flags & FLAG_D
+			|| lstat(tmp->path, &stat) < 0
+			|| !S_ISDIR(stat.st_mode))
 		{
 			_not_dir(data, alone_files, previous, &tmp);
-			closedir(dir);
 			continue ;
 		}
-		closedir(dir);
 		previous = tmp;
 		tmp = tmp->next;
 	}

@@ -6,7 +6,7 @@
 /*   By: ysabik <ysabik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 10:44:36 by ysabik            #+#    #+#             */
-/*   Updated: 2024/10/19 12:46:31 by ysabik           ###   ########.fr       */
+/*   Updated: 2024/10/24 11:04:15 by ysabik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ static void	_sort(t_dir *dir, t_sort sort, t_bool reversed)
 
 void	sort_entries(t_data *data, t_dir *dir)
 {
+	if (data->flags & FLAG_F)
+		return;
 	undiacritize(dir);
 	_sort(dir, data->sort, data->flags & FLAG_R);
 }
